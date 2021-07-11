@@ -1,0 +1,6 @@
+example_id                              | status  | run_time        |
+--------------------------------------- | ------- | --------------- |
+./spec/models/comment_spec.rb[1:1]      | pending | 0.00002 seconds |
+./spec/models/todo_spec.rb[1:1]         | pending | 0.00001 seconds |
+./spec/requests/comments_spec.rb[1:1:1] | pending | 0.00001 seconds |
+./spec/requests/todos_spec.rb[1:1:1]    | pending | 0.00001 seconds |
