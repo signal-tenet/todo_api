@@ -1,30 +1,28 @@
+# frozen_string_literal: true
+
+# Controller for managing comments
 class CommentsController < ApplicationController
   before_action :set_todo
-  before_action :set_todo_comment, only: [:show, :update, :destroy]
+  before_action :set_todo_comment, only: %i[show update destroy]
 
-  # GET /todos/:todo_id/comments
   def index
     json_response(@todo.comments)
   end
 
-  # GET /todos/:todo_id/comments/:id
   def show
     json_response(@comment)
   end
 
-  # POST /todos/:todo_id/comments
   def create
     @todo.comments.create!(comment_params)
     json_response(@todo, :created)
   end
 
-  # PUT /todos/:todo_id/comments/:id
   def update
     @comment.update(comment_params)
     head :no_content
   end
 
-  # DELETE /todos/:todo_id/comments/:id
   def destroy
     @comment.destroy
     head :no_content
