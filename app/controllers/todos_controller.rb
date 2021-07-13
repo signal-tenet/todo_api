@@ -2,15 +2,16 @@
 
 # Controller for managing todos
 class TodosController < ApplicationController
+  before_action :set_project
   before_action :set_todo, only: %i[show update destroy]
 
   def index
-    @todos = Todo.all
+    @todos = @project.todos
     json_response(@todos)
   end
 
   def create
-    @todo = Todo.create!(todo_params)
+    @todo = @project.todos.create!(todo_params)
     json_response(@todo, :created)
   end
 
@@ -30,11 +31,15 @@ class TodosController < ApplicationController
 
   private
 
+  def set_project
+    @project = Project.find(params[:project_id])
+  end
+
   def todo_params
     params.permit(:name, :completion_status)
   end
 
   def set_todo
-    @todo = Todo.find(params[:id])
+    @todo = @project.todos.find(params[:id])
   end
 end

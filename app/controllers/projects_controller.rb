@@ -31,7 +31,7 @@ class ProjectsController < ApplicationController
   private
 
   def project_params
-    params.permit(:title, :created_by, :completion_status)
+    params.permit(:title, :created_by)
   end
 
   def set_project
