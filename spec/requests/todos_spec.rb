@@ -35,7 +35,7 @@ RSpec.describe 'Todos', type: :request do
   end
 
   describe 'POST /todos' do
-    let(:valid_attributes) { { name: 'Kill the fly', created_by: 'ME' } }
+    let(:valid_attributes) { { name: 'Kill the fly' } }
 
     context 'when the request is valid' do
       before { post '/todos', params: valid_attributes }

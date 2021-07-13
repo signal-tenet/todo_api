@@ -2,5 +2,5 @@
 
 class Todo < ApplicationRecord
   has_many :comments, dependent: :destroy
-  validates_presence_of :name, :created_by
+  validates_presence_of :name
 end
