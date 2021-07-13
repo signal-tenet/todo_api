@@ -31,7 +31,7 @@ class TodosController < ApplicationController
   private
 
   def todo_params
-    params.permit(:name, :created_by, :completion_status)
+    params.permit(:name, :completion_status)
   end
 
   def set_todo
